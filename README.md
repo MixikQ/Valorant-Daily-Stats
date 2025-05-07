@@ -2,7 +2,7 @@
 
 [ENG](#ENG) / [RU](#RU)
 ### ENG
-**This widget correctly works only for Immortal rank and above**
+**This widget works with all ranks**
 
 Feel free to DM me to offer some new features 
 
@@ -38,7 +38,7 @@ Then open OBS and add **browser source**, click on a checkbox *"Local file"* and
 **Now widget are ready to use!**
 
 ### RU
-**Виджет работает правильно только для рангов Бессмертный и выше**
+**Виджет работает правильно для всех рангов**
 
 Не стесняйтесь писать мне в ЛС, чтобы предлагать новые функции
 
