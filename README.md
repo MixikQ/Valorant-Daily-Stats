@@ -33,7 +33,9 @@ const api_key    = "REPLACE WITH API KEY";      // Gets in HenrikDev discord
 ```
 Replace all strings with your data
 
-Then open OBS and add **browser source**, click on a checkbox *"Local file"* and select *"main.html"*, set width to *500* and height to *70*
+Then open OBS and add **browser source**, click on a checkbox *"Local file"* and select *"main.html"* 
+
+Set any width greater than *500* and height to *70*
 
 **Now widget are ready to use!**
 
@@ -69,6 +71,8 @@ const api_key    = "REPLACE WITH API KEY";      // Gets in HenrikDev discord
 ```
 Замени все поля соответствующими данными
 
-Затем открой ОБС и добавь источник **браузер**, поставь галочку *"Локальный файл"* и выбери файл *"main.html"*, установи ширину *500* и высоту *70*
+Затем открой ОБС и добавь источник **браузер**, поставь галочку *"Локальный файл"* и выбери файл *"main.html"*
+
+Установи любую ширину больше *500* и высоту *70*
 
 **Теперь виджет готов к использоавнию**
