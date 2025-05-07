@@ -1,2 +1,7 @@
 # Releases:
 *.zip
+
+# Temporary files
+temp*.js
+temp*.css
+temp*.html
