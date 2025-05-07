@@ -6,6 +6,33 @@ let Wins;
 let Loses;
 let EloChanges;
 
+const ranks = {
+    3 : "Iron 1",
+    4 : "Iron 2",
+    5 : "Iron 3",
+    6 : "Bronze 1",
+    7 : "Bronze 2",
+    8 : "Bronze 3",
+    9 : "Silver 1",
+    10 : "Silver 2",
+    11 : "Silver 3",
+    12 : "Gold 1",
+    13 : "Gold 2",
+    14 : "Gold 3",
+    15 : "Plat 1",
+    16 : "Plat 2",
+    17 : "Plat 3",
+    18 : "Diam 1",
+    19 : "Diam 2",
+    20 : "Diam 3",
+    21 : "Asc 1",
+    22 : "Asc 2",
+    23 : "Asc 3",
+    24 : "Imm 1",
+    25 : "Imm 2" , 
+    26 : "Imm 3",
+    27 : "Radiant"
+}
 
 // Gets current elo on account
 async function getCurrentElo() {
@@ -63,7 +90,6 @@ async function getNeededElo() {
         const json = await response.json();
         console.log(`getWL():`);
         console.log(json);
-        console.log(date);
         let EloLastGame = json.data.history[0].elo;
         let EloFirstGame;
         let u = 0;
@@ -77,8 +103,6 @@ async function getNeededElo() {
             }
             u++;
         }
-        console.log(json.data.history[0].last_change);
-        console.log(json.data.history[0].date.toString().includes(date));
         EloFirstGame = json.data.history[u].elo;
         EloChanges = EloLastGame - EloFirstGame;
     } catch (error) {
@@ -89,7 +113,7 @@ async function getNeededElo() {
 // Set page data
 async function setPageData() {
     try {
-        let CurrentEloString = CurrentElo + `/` + NeededElo + ` RR`;
+        let CurrentEloString = (CurrentTier >= 24) ? CurrentElo + `/` + NeededElo + ` RR` : ranks[CurrentTier] + ' : ' + CurrentElo + ' RR';
         document.getElementById(`CurrentElo1`).innerHTML = CurrentEloString;
         document.getElementById(`WL1`).innerHTML = `W ` + Wins + `-` + Loses + ` L`;
         document.getElementById(`EloChanges1`).innerHTML = (EloChanges > 0 ? `+` : ``) + EloChanges + ` RR`;
@@ -103,8 +127,9 @@ async function updatePageData() {
     getCurrentElo();
     getNeededElo();
     getWL();
-    setTimeout(() => {setPageData();}, 1000);
+    setTimeout(() => {setPageData(); console.log(`Page data set`)}, 3000);
 }
 
-setTimeout(() => {updatePageData();}, 3000);
-let timerId = setInterval(() => {updatePageData(); console.log(`Page data updated`)}, 300000);
+updatePageData();
+// setTimeout(() => {updatePageData();}, 3000);
+let timerId = setInterval(() => {updatePageData(); console.log(`Page data updated`)}, 60000);
