@@ -113,7 +113,8 @@ async function getNeededElo() {
 // Set page data
 async function setPageData() {
     try {
-        let CurrentEloString = (CurrentTier >= 24) ? CurrentElo + `/` + NeededElo + ` RR` : ranks[CurrentTier] + ' : ' + CurrentElo + ' RR';
+        let CurrentEloString = (CurrentTier >= 24) ?  ranks[CurrentTier] + " : " + CurrentElo + `/` + NeededElo + ` RR` : ranks[CurrentTier] + ' : ' + CurrentElo + ' RR';
+        document.getElementById('Progress').style.background = (CurrentTier >= 24) ? 'linear-gradient(105deg, #0084ffAA ' + CurrentElo/NeededElo*100 + '%, #FF000000 ' + CurrentElo/NeededElo*100 + '%)' : 'linear-gradient(105deg, #0084ffAA' + CurrentElo + '%, #FF000000 ' + CurrentElo + '%)';
         document.getElementById(`CurrentElo1`).innerHTML = CurrentEloString;
         document.getElementById(`WL1`).innerHTML = `W ` + Wins + `-` + Loses + ` L`;
         document.getElementById(`EloChanges1`).innerHTML = (EloChanges > 0 ? `+` : ``) + EloChanges + ` RR`;

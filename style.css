@@ -3,21 +3,56 @@
     margin: 0;
     box-sizing: border-box;
     font-family: "Lexend", sans-serif;
+    max-width: 600px;
+    max-height: 70px;
 }
 body {
 display: flex;
-background-color: #222;
+background-color: #FFFFFF;
 color: aliceblue;
 font-size: 3.7em;
 font-weight: 300;
 }
 .border {
-position: relative;
+position: absolute;
 display: flex;
 justify-content: center;
 height: 70px;
-width: 100%;
+width: 600px;
 overflow-y: hidden;
+left: 50%;
+transform: translate(-50%, 0%);
+z-index: 5;
+}
+.Background {
+position: absolute;
+width: inherit;
+height: inherit;
+background-color: #000000AA;
+border-radius: 6px;
+border-style: solid;
+border-width: 3px;
+border-color: #13497e;
+z-index: -1;
+}
+.BackgroundProgress {
+position: inherit;
+height: 300px;
+background: linear-gradient(105deg, #0084ffAA 0%, #FF000000 0%);
+border-width: 0;
+border-radius: 0;
+width: 100%;
+z-index: -1;
+}
+.BackgroundBorder {
+position: absolute;
+width: inherit;
+height: inherit;
+border-width: 3px;
+border-color: #0084ff;
+border-radius: 6px;
+border-style: solid;
+z-index: 4;
 }
 .rotatingText {
 position: relative;
@@ -26,14 +61,14 @@ justify-content: center;
 width: 100%;
 animation-name: roll;
 animation-timing-function: ease-in-out;
-animation-duration: 15s;
+animation-duration: 5s;
 animation-iteration-count: infinite;
 animation-direction: alternate;
 }
 .rotatingText span {
 position: absolute;
 padding: 0;
-top: 0px;
+top: -5px;
 height: 60px;
 overflow-y: hidden;
 }
