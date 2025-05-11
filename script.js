@@ -5,6 +5,7 @@ let NeededElo;
 let Wins;
 let Loses;
 let EloChanges;
+let PreviosPosition = 0;
 
 const ranks = {
     3 : "Iron 1",
@@ -113,11 +114,17 @@ async function getNeededElo() {
 // Set page data
 async function setPageData() {
     try {
-        let CurrentEloString = (CurrentTier >= 24) ?  ranks[CurrentTier] + " : " + CurrentElo + `/` + NeededElo + ` RR` : ranks[CurrentTier] + ' : ' + CurrentElo + ' RR';
-        document.getElementById('Progress').style.background = (CurrentTier >= 24) ? 'linear-gradient(105deg, #0084ffAA ' + CurrentElo/NeededElo*100 + '%, #FF000000 ' + CurrentElo/NeededElo*100 + '%)' : 'linear-gradient(105deg, #0084ffAA' + CurrentElo + '%, #FF000000 ' + CurrentElo + '%)';
-        document.getElementById(`CurrentElo1`).innerHTML = CurrentEloString;
-        document.getElementById(`WL1`).innerHTML = `W ` + Wins + `-` + Loses + ` L`;
-        document.getElementById(`EloChanges1`).innerHTML = (EloChanges > 0 ? `+` : ``) + EloChanges + ` RR`;
+        if ("true".localeCompare(show_rank.toLowerCase()) === 0) {
+            CurrentEloString = (CurrentTier >= 24) ? ranks[CurrentTier] + " : " + CurrentElo + `/` + NeededElo + ` RR` : ranks[CurrentTier] + ' : ' + CurrentElo + `/100 RR`;
+        } else if ("false".localeCompare(show_rank.toLowerCase()) === 0) {
+            CurrentEloString = (CurrentTier >= 24) ? CurrentElo + `/` + NeededElo + ` RR` : CurrentElo + `/100 RR`;
+        } else {
+            CurrentEloString = (CurrentTier >= 24) ? CurrentElo + `/` + NeededElo + ` RR` : ranks[CurrentTier] + ' : ' + CurrentElo + `/100 RR`;
+        }
+        document.getElementById(`CurrentElo`).innerHTML = CurrentEloString;
+        document.getElementById(`WL`).innerHTML = `W ` + Wins + `-` + Loses + ` L`;
+        document.getElementById(`EloChanges`).innerHTML = (EloChanges > 0 ? `+` : ``) + EloChanges + ` RR`;
+        document.getElementById('Progress').style.transform = (CurrentTier >= 24) ? 'translateX(' + (-50+(CurrentElo/NeededElo*50)) + '%)' : 'translateX(' + (-50+(CurrentElo/2)) + "%)";
     } catch (error) {
         console.error(error.message);
     }
@@ -128,9 +135,20 @@ async function updatePageData() {
     getCurrentElo();
     getNeededElo();
     getWL();
-    setTimeout(() => {setPageData(); console.log(`Page data set`)}, 3000);
+    setTimeout(() => {setPageData(); console.log(`Page data set`)}, 4500);
 }
 
+let root = document.querySelector(':root');
+root.style.setProperty('--width', width+'px');
+if ('true'.localeCompare(enable_bar_gradient.toLowerCase()) === 0) {
+    root.style.setProperty('--first-color-bar', first_gradient_color);
+    root.style.setProperty('--second-color-bar', second_gradient_color);
+} else {
+    root.style.setProperty('--first-color-bar', color_bar);
+    root.style.setProperty('--second-color-bar', color_bar);
+}
+root.style.setProperty('--color-background', color_bg);
+root.style.setProperty('--color-border', color_border);
+
 updatePageData();
-// setTimeout(() => {updatePageData();}, 3000);
 let timerId = setInterval(() => {updatePageData(); console.log(`Page data updated`)}, 60000);
