@@ -11,6 +11,8 @@ max-height: 70px;
 --second-color-bar: #000000;
 --color-background: #000000B0;
 --color-border: #000000;
+--border-width: 3px;
+--radius: 6px;
 }
 body {
 display: flex;
@@ -27,7 +29,7 @@ height: 70px;
 width: var(--width);
 overflow-y: hidden;
 overflow-x: hidden;
-border-radius: 6px;
+border-radius: var(--radius);
 left: 50%;
 transform: translate(-50%, 0%);
 z-index: 5;
@@ -37,29 +39,29 @@ position: absolute;
 width: inherit;
 height: inherit;
 background-color: var(--color-background);
-border-radius: 6px;
+border-radius: var(--radius);
 z-index: -1;
 }
 .BackgroundProgress {
 position: inherit;
 height: 70px;
-background: linear-gradient(105deg, var(--first-color-bar) 0%, var(--second-color-bar) 51%, #00000000 51%);
+background: linear-gradient(105deg, var(--first-color-bar) 0%, var(--second-color-bar) 50.3%, #00000000 50.4%);
 box-sizing: border-box;
 border-width: 0px;
-border-radius: 6px;
+border-radius: var(--radius);
 border-color: var(--color-bar);
 transform: translateX(-50%);
 width: 200%;
 z-index: -1;
-transition: transform 2s ease-in-out;
+transition: transform 2s;
 }
 .BackgroundBorder {
 position: absolute;
 width: inherit;
 height: inherit;
-border-width: 3px;
+border-width: var(--border-width);
 border-color: var(--color-border);
-border-radius: 6px;
+border-radius: var(--radius);
 border-style: solid;
 z-index: 4;
 }
@@ -68,6 +70,7 @@ position: relative;
 display: flex;
 justify-content: center;
 width: 100%;
+z-index: 3;
 animation-name: roll;
 animation-timing-function: ease-in-out;
 animation-duration: 15s;
@@ -77,9 +80,21 @@ animation-direction: alternate;
 .rotatingText span {
 position: absolute;
 padding: 0;
-top: -5px;
+top: -2px;
 height: 60px;
 overflow-y: hidden;
+}
+.first {
+    --draws: "";
+}
+.first::before {
+    content: var(--draws);
+    opacity: 0;
+    font-size: 0.65em;
+}
+.first::after {
+    content: var(--draws);
+    font-size: 0.65em;
 }
 .second {
     transform: translate(0, 70px);

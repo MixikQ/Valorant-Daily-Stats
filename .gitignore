@@ -1,5 +1,6 @@
 # Releases:
 *.zip
+.vscode
 
 # Temporary files
 temp*.js

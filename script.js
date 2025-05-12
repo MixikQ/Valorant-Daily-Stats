@@ -3,9 +3,9 @@ let CurrentTier;
 let CurrentPlace;
 let NeededElo;
 let Wins;
-let Loses;
+let Losses;
+let Draws;
 let EloChanges;
-let PreviosPosition = 0;
 
 const ranks = {
     3 : "Iron 1",
@@ -69,10 +69,10 @@ async function getNeededElo() {
         const json = await response.json();
         console.log(`getNeededElo():`);
         console.log(json);
-        if (json.data.players[499] && json.data.players[499].rr > 550) {
+        if (json.data.players[499] && json.data.players[499].rr > json.data.thresholds[3].threshold) {
             NeededElo = json.data.players[499].rr;
         } else {
-            NeededElo = 550;
+            NeededElo = json.data.thresholds[3].threshold;
         }
     } catch (error) {
         console.error(error.message);
@@ -95,14 +95,17 @@ async function getNeededElo() {
         let EloFirstGame;
         let u = 0;
         Wins = 0;
-        Loses = 0;
-        for (i = 0; json.data.history[i].date.toString().includes(date); i++) {
+        Losses = 0;
+        Draws = 0;
+        for (i = 0; json.data.history[i].date.toString().includes(date); ++i) {
             if (json.data.history[i].last_change < 0) {
-                Loses++;
+                ++Losses;
             } else if (json.data.history[i].last_change > 5) {
-                Wins++;
+                ++Wins;
+            } else {
+                ++Draws;
             }
-            u++;
+            ++u;
         }
         EloFirstGame = json.data.history[u].elo;
         EloChanges = EloLastGame - EloFirstGame;
@@ -114,17 +117,20 @@ async function getNeededElo() {
 // Set page data
 async function setPageData() {
     try {
-        if ("true".localeCompare(show_rank.toLowerCase()) === 0) {
-            CurrentEloString = (CurrentTier >= 24) ? ranks[CurrentTier] + " : " + CurrentElo + `/` + NeededElo + ` RR` : ranks[CurrentTier] + ' : ' + CurrentElo + `/100 RR`;
-        } else if ("false".localeCompare(show_rank.toLowerCase()) === 0) {
-            CurrentEloString = (CurrentTier >= 24) ? CurrentElo + `/` + NeededElo + ` RR` : CurrentElo + `/100 RR`;
+        if (CurrentTier == 27) {
+            CurrentEloString = `${ranks[CurrentTier]} #${CurrentPlace} | ${CurrentElo} RR`;
         } else {
-            CurrentEloString = (CurrentTier >= 24) ? CurrentElo + `/` + NeededElo + ` RR` : ranks[CurrentTier] + ' : ' + CurrentElo + `/100 RR`;
+            if ("true".localeCompare(show_rank.toLowerCase()) === 0) {
+                CurrentEloString = (CurrentTier >= 24) ? `${ranks[CurrentTier]} | ${CurrentElo}/${NeededElo} RR` : `${ranks[CurrentTier]} | ${CurrentElo}/100 RR`;
+            } else {
+                CurrentEloString = (CurrentTier >= 24) ? `${CurrentElo}/${NeededElo} RR` : `${CurrentElo}/100 RR`;
+            }
         }
         document.getElementById(`CurrentElo`).innerHTML = CurrentEloString;
-        document.getElementById(`WL`).innerHTML = `W ` + Wins + `-` + Loses + ` L`;
-        document.getElementById(`EloChanges`).innerHTML = (EloChanges > 0 ? `+` : ``) + EloChanges + ` RR`;
-        document.getElementById('Progress').style.transform = (CurrentTier >= 24) ? 'translateX(' + (-50+(CurrentElo/NeededElo*50)) + '%)' : 'translateX(' + (-50+(CurrentElo/2)) + "%)";
+        document.getElementById(`WL`).innerHTML = `W ${Wins} - ${Losses} L`;
+        document.getElementsByClassName(`first`)[0].style.setProperty(`--draws`, `" Draws: ${Draws}"`);
+        document.getElementById(`EloChanges`).innerHTML = `${(EloChanges > 0 ? `+` : ``)}${EloChanges} RR`;
+        document.getElementById('Progress').style.transform = (CurrentTier >= 24) ? `translateX(${Math.min(-50+(CurrentElo/NeededElo*50), 0)}%)` : `translateX(${Math.min(-50+(CurrentElo/2), 0)}%)`;
     } catch (error) {
         console.error(error.message);
     }
@@ -149,6 +155,9 @@ if ('true'.localeCompare(enable_bar_gradient.toLowerCase()) === 0) {
 }
 root.style.setProperty('--color-background', color_bg);
 root.style.setProperty('--color-border', color_border);
+root.style.setProperty('--border-width', `${border_width}px`);
+root.style.setProperty('--radius', `${radius}px`);
+
 
 updatePageData();
 let timerId = setInterval(() => {updatePageData(); console.log(`Page data updated`)}, 60000);
