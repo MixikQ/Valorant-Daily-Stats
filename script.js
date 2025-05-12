@@ -35,7 +35,7 @@ const ranks = {
     27 : "Radiant"
 }
 
-// Gets current elo on account
+// Gets current elo on account 
 async function getCurrentElo() {
     try {
         const url = `https://api.henrikdev.xyz/valorant/v3/mmr/${region}/${platform}/${nickname}/${tag}?api_key=${api_key}`;
