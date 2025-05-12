@@ -20,22 +20,34 @@ To use it you need to get API key in [HenrikDev discord](https://discord.com/inv
   - "Basic" ⇒ 30req/min, granted without approval from HenrikDev side (**recommended**)
   - "Advanced" ⇒ 90req/min, requires HenrikDev approval
 
-After downloading extract all files to any folder and open file *config.js* with notepad
+After downloading extract all files to any folder and open file `config.js` with notepad
 
 You will see there: 
 
 ```js
-const nickname   = "REPLACE WITH NICKNAME";     // Valorant in-game nickname
-const tag        = "REPLACE WITH TAG";          // Valorant in-game tag
-const region     = "REPLACE WITH REGION";       // Possible regions: eu / na / latam / br / ap / kr
-const platform   = "REPLACE WITH PLATFORM";     // Possible platforms: pc / console
-const api_key    = "REPLACE WITH API KEY";      // Gets in HenrikDev discord
+const nickname              = `REPLACE WITH NICKNAME`;                  // Valorant in-game nickname
+const tag                   = `REPLACE WITH TAG`;                       // Valorant in-game tag
+const region                = `REPLACE WITH REGION`;                    // Possible regions: eu / na / latam / br / ap / kr
+const platform              = `REPLACE WITH PLATFORM`;                  // Possible platforms: pc / console
+const api_key               = `REPLACE WITH API KEY`;                   // Gets in HenrikDev discord
+
+// Customization
+const width                 = 1000;                                     // Width in px, only digit (example 1000)
+const show_rank             = `REPLACE WITH TRUE or FALSE`;             // If TRUE shows rank before RR
+const enable_bar_gradient   = `REPLACE WITH TRUE or FALSE`;             // If TRUE enables gradient on progress bar
+const color_bar             = `REPLACE WITH COLOR IN HEX`;              // Color of progress bar (example #000000) ignored if enable_bar_gradient is true 
+const first_gradient_color  = `REPLACE WITH COLOR IN HEX`;              // Left color of gradient
+const second_gradient_color = `REPLACE WITH COLOR IN HEX`;              // Right color of gradient
+const border_width          = 3;                                        // Width of border in pixels
+const radius                = 6;                                        // Radius in pixels 
+const color_border          = `REPLACE WITH COLOR IN HEX`;              // Color of border of progress bar
+const color_bg              = `REPLACE WITH COLOR IN HEX`;              // Color of progress bar background
 ```
-Replace all strings with your data
+Replace all strings with your data, pay attention that `color_bar` will be ignored, if `enable_bar_gradient` set to *TRUE* and both `first_gradient_color` and `second_gradient_color` will be ignored if *FALSE*
 
-Then open OBS and add **browser source**, click on a checkbox *"Local file"* and select *"main.html"* 
+Then open OBS and add **browser source**, click on a checkbox `Local file` and select `main.html` 
 
-Set any width greater than *500* and height to *70*
+Set width <ins>**the same**</ins> as you set in the `config.js` and height to *70*
 
 **Now widget are ready to use!**
 
@@ -58,21 +70,33 @@ discord: [@mixq](https://discord.com/users/353798731377934337)
   - "Basic" ⇒ 30 запросов/минута, гарантируется без разрешения со стороны разработчиков (рекомендую этот тип)
   - "Advanced" ⇒ 90 запросов/минута, нужно чтобы подтвердили разработчики
 
-После скачивания, нужно извлечь все файлы из архива в любую удобную папку и открыть файл *"config.js"*
+После скачивания, нужно извлечь все файлы из архива в любую удобную папку и открыть файл `config.js`
 
 В нем будет: 
 
 ```js
-const nickname   = "REPLACE WITH NICKNAME";     // Valorant in-game nickname
-const tag        = "REPLACE WITH TAG";          // Valorant in-game tag
-const region     = "REPLACE WITH REGION";       // Possible regions: eu / na / latam / br / ap / kr
-const platform   = "REPLACE WITH PLATFORM";     // Possible platforms: pc / console
-const api_key    = "REPLACE WITH API KEY";      // Gets in HenrikDev discord
+const nickname              = `REPLACE WITH NICKNAME`;                  // Valorant in-game nickname
+const tag                   = `REPLACE WITH TAG`;                       // Valorant in-game tag
+const region                = `REPLACE WITH REGION`;                    // Possible regions: eu / na / latam / br / ap / kr
+const platform              = `REPLACE WITH PLATFORM`;                  // Possible platforms: pc / console
+const api_key               = `REPLACE WITH API KEY`;                   // Gets in HenrikDev discord
+
+// Customization
+const width                 = 1000;                                     // Width in px, only digit (example 1000)
+const show_rank             = `REPLACE WITH TRUE or FALSE`;             // If TRUE shows rank before RR
+const enable_bar_gradient   = `REPLACE WITH TRUE or FALSE`;             // If TRUE enables gradient on progress bar
+const color_bar             = `REPLACE WITH COLOR IN HEX`;              // Color of progress bar (example #000000) ignored if enable_bar_gradient is true 
+const first_gradient_color  = `REPLACE WITH COLOR IN HEX`;              // Left color of gradient
+const second_gradient_color = `REPLACE WITH COLOR IN HEX`;              // Right color of gradient
+const border_width          = 3;                                        // Width of border in pixels
+const radius                = 6;                                        // Radius in pixels 
+const color_border          = `REPLACE WITH COLOR IN HEX`;              // Color of border of progress bar
+const color_bg              = `REPLACE WITH COLOR IN HEX`;              // Color of progress bar background
 ```
-Замени все поля соответствующими данными
+Замени все поля соответствующими данными, обрати внимание, что поле `color_bar` будет проигнорировано, если `enable_bar_gradient` установлено *TRUE*, и наоборот, поля `first_gradient_color` и `second_gradient_color` будут проигнорированы, если `enable_bar_gradient` установлено *FALSE*
 
-Затем открой ОБС и добавь источник **браузер**, поставь галочку *"Локальный файл"* и выбери файл *"main.html"*
+Затем открой ОБС и добавь источник **браузер**, поставь галочку `Локальный файл` и выбери файл `main.html`
 
-Установи любую ширину больше *500* и высоту *70*
+Установи <ins>**такую же**</ins> ширину, как и в файле `config.js` и высоту *70*
 
-**Теперь виджет готов к использоавнию**
+**Теперь виджет готов к использоавнию!**
