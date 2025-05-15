@@ -118,10 +118,10 @@ async function getNeededElo() {
 async function setPageData() {
     try {
         if (CurrentTier == 27) {
-            CurrentEloString = `${ranks[CurrentTier]} #${CurrentPlace} | ${CurrentElo} RR`;
+            CurrentEloString = `<img src="https://media.valorant-api.com/competitivetiers/03621f52-342b-cf4e-4f86-9350a49c6d04/${CurrentTier}/largeicon.png"> ${ranks[CurrentTier]} #${CurrentPlace} | ${CurrentElo} RR`;
         } else {
             if ("true".localeCompare(show_rank.toLowerCase()) === 0) {
-                CurrentEloString = (CurrentTier >= 24) ? `${ranks[CurrentTier]} | ${CurrentElo}/${NeededElo} RR` : `${ranks[CurrentTier]} | ${CurrentElo}/100 RR`;
+                CurrentEloString = (CurrentTier >= 24) ? `<img src="https://media.valorant-api.com/competitivetiers/03621f52-342b-cf4e-4f86-9350a49c6d04/${CurrentTier}/largeicon.png"> ${ranks[CurrentTier]} | ${CurrentElo}/${NeededElo} RR` : `<img src="https://media.valorant-api.com/competitivetiers/03621f52-342b-cf4e-4f86-9350a49c6d04/${CurrentTier}/largeicon.png"> ${ranks[CurrentTier]} | ${CurrentElo}/100 RR`;
             } else {
                 CurrentEloString = (CurrentTier >= 24) ? `${CurrentElo}/${NeededElo} RR` : `${CurrentElo}/100 RR`;
             }
