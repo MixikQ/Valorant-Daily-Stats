@@ -1,4 +1,5 @@
 # Valorant-Daily-Stats
+![Alt Text](https://i.ibb.co/dJK4szPg/ezgif-24146d9deadce8.gif)
 
 [ENG](#ENG) / [RU](#RU)
 ### ENG
