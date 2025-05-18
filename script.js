@@ -80,10 +80,10 @@ async function getNeededElo() {
 }
 
 // Gets win/loss stats
-   async function getWL() {
+async function getWL() {
     try {
         let date = new Date().toISOString().slice(0,10);
-        const url = `https://api.henrikdev.xyz/valorant/v2/mmr-history/${region}/${platform}/${nickname}/${tag}?api_key=${api_key}`; 
+        const url = `https://api.henrikdev.xyz/valorant/v2/stored-mmr-history/${region}/${platform}/${nickname}/${tag}?size=50&api_key=${api_key}`;
         const response = await fetch(url , { cache: `no-store` });
         if (!response.ok) {
             throw new Error(`Response status: ${response.status}`);
@@ -91,23 +91,23 @@ async function getNeededElo() {
         const json = await response.json();
         console.log(`getWL():`);
         console.log(json);
-        let EloLastGame = json.data.history[0].elo;
+        let EloLastGame = json.data[0].elo;
         let EloFirstGame;
         let u = 0;
         Wins = 0;
         Losses = 0;
         Draws = 0;
-        for (i = 0; json.data.history[i].date.toString().includes(date); ++i) {
-            if (json.data.history[i].last_change < 0) {
+        for (i = 0; json.data[i].date.toString().includes(date); ++i) {
+            if (json.data[i].last_change < 0) {
                 ++Losses;
-            } else if (json.data.history[i].last_change > 5) {
+            } else if (json.data[i].last_change > 5) {
                 ++Wins;
             } else {
                 ++Draws;
             }
             ++u;
         }
-        EloFirstGame = json.data.history[u].elo;
+        EloFirstGame = json.data[u].elo;
         EloChanges = EloLastGame - EloFirstGame;
     } catch (error) {
         console.error(error.message);
@@ -145,7 +145,8 @@ async function updatePageData() {
 }
 
 let root = document.querySelector(':root');
-root.style.setProperty('--width', width+'px');
+root.style.setProperty('--width', `${width}px`);
+root.style.setProperty('--text-color', text_color);
 if ('true'.localeCompare(enable_bar_gradient.toLowerCase()) === 0) {
     root.style.setProperty('--first-color-bar', first_gradient_color);
     root.style.setProperty('--second-color-bar', second_gradient_color);

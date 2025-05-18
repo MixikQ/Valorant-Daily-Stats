@@ -13,11 +13,12 @@ max-height: 70px;
 --color-border: #000000;
 --border-width: 3px;
 --radius: 6px;
+--text-color: #000000; 
 }
 body {
 display: flex;
 background-color: #FFFFFF;
-color: aliceblue;
+color: var(--text-color);
 font-size: 3.7em;
 font-weight: 300;
 }
