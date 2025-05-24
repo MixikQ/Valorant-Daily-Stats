@@ -1,31 +1,3 @@
-const ranks = {
-    3 : "Iron 1",
-    4 : "Iron 2",
-    5 : "Iron 3",
-    6 : "Bronze 1",
-    7 : "Bronze 2",
-    8 : "Bronze 3",
-    9 : "Silver 1",
-    10 : "Silver 2",
-    11 : "Silver 3",
-    12 : "Gold 1",
-    13 : "Gold 2",
-    14 : "Gold 3",
-    15 : "Plat 1",
-    16 : "Plat 2",
-    17 : "Plat 3",
-    18 : "Diam 1",
-    19 : "Diam 2",
-    20 : "Diam 3",
-    21 : "Asc 1",
-    22 : "Asc 2",
-    23 : "Asc 3",
-    24 : "Imm 1",
-    25 : "Imm 2" , 
-    26 : "Imm 3",
-    27 : "Radiant"
-}
-
 let CurrentElo;
 let CurrentRank;
 let CurrentTier;
@@ -119,20 +91,20 @@ async function getWL() {
 async function setPageData() {
     try {
         document.getElementsByClassName(`RankPicture`)[0].src = `https://media.valorant-api.com/competitivetiers/03621f52-342b-cf4e-4f86-9350a49c6d04/${CurrentTier}/largeicon.png`;
-        document.getElementsByClassName(`CurrentRank`)[0].innerHTML = `${CurrentRank}`;
+        if (CurrentPlace) {
+            document.getElementsByClassName(`CurrentRank`)[0].innerHTML = `${CurrentRank} #${CurrentPlace}`;
+        } else { 
+            document.getElementsByClassName(`CurrentRank`)[0].innerHTML = `${CurrentRank}`
+        }
         document.getElementsByClassName(`CurrentRank`)[0].style.setProperty(`color`, text_color);
-        document.getElementsByClassName(`Draws`)[0].innerHTML = (Draws >= 10) ? `Draws: ${Draws}` : `Draws: 0${Draws}`;
+        document.getElementsByClassName(`Draws`)[0].innerHTML = (Draws >= 10) ? `Draws: ${Draws}` : `Draws: <i>0</i>${Draws}`;
         if (Draws > 0) {
             document.getElementsByClassName(`Draws`)[0].style.setProperty(`color`, text_color);
         }
-        document.getElementsByClassName(`Wins`)[0].innerHTML = (Wins >= 10) ? `Wins: ${Wins}` : `Wins: 0${Wins}`;
-        if (Wins > 0) {
-            document.getElementsByClassName(`Wins`)[0].style.setProperty(`color`, text_color);
-        }
-        document.getElementsByClassName(`Losses`)[0].innerHTML = (Losses >= 10) ? `Losses: ${Losses}` : `Losses: 0${Losses}`;
-        if (Losses > 0) {
-            document.getElementsByClassName(`Losses`)[0].style.setProperty(`color`, text_color);
-        }
+        document.getElementsByClassName(`Wins`)[0].innerHTML = (Wins >= 10) ? `Wins: ${Wins}` : `Wins: <i>0</i>${Wins}`;
+        document.getElementsByClassName(`Wins`)[0].style.setProperty(`color`, text_color);
+        document.getElementsByClassName(`Losses`)[0].innerHTML = (Losses >= 10) ? `Losses: ${Losses}` : `Losses: <i>0</i>${Losses}`;
+        document.getElementsByClassName(`Losses`)[0].style.setProperty(`color`, text_color);
         if (Wins > 0 || Losses > 0 || Draws > 0) {
             document.getElementsByClassName(`EloChangesText`)[0].style.color = `${text_color}`;
         }
@@ -140,25 +112,25 @@ async function setPageData() {
             if (EloChanges >= 100) {
                 document.getElementsByClassName(`EloChangesText`)[0].innerHTML = `${EloChanges}`;
             } else if (EloChanges >= 10) {
-                document.getElementsByClassName(`EloChangesText`)[0].innerHTML = `<i>0</i>${EloChanges}`;
+                document.getElementsByClassName(`EloChangesText`)[0].innerHTML = `${EloChanges}<i>0</i>`;
             } else {
-                document.getElementsByClassName(`EloChangesText`)[0].innerHTML = `<i>00</i>${EloChanges}`;
+                document.getElementsByClassName(`EloChangesText`)[0].innerHTML = `${EloChanges}<i>00</i>`;
             }
             document.getElementsByClassName(`Plus`)[0].style.setProperty(`color`, text_color);
-            document.getElementsByClassName(`Minus`)[0].style.setProperty(`color`, `#242526`);
+            document.getElementsByClassName(`Minus`)[0].style.setProperty(`color`, `#00000030`);
         } else if (EloChanges < 0) {
             if (EloChanges <= -100) {
                 document.getElementsByClassName(`EloChangesText`)[0].innerHTML = `${-EloChanges}`;
             } else if (EloChanges <= -10) {
-                document.getElementsByClassName(`EloChangesText`)[0].innerHTML = `<i>0</i>${-EloChanges}`;
+                document.getElementsByClassName(`EloChangesText`)[0].innerHTML = `${-EloChanges}<i>0</i>`;
             } else {
-                document.getElementsByClassName(`EloChangesText`)[0].innerHTML = `<i>00</i>${-EloChanges}`;
+                document.getElementsByClassName(`EloChangesText`)[0].innerHTML = `${-EloChanges}<i>00</i>`;
             }
-            document.getElementsByClassName(`Plus`)[0].style.setProperty(`color`, `#242526`);
+            document.getElementsByClassName(`Plus`)[0].style.setProperty(`color`, `#00000030`);
             document.getElementsByClassName(`Minus`)[0].style.setProperty(`color`, text_color);
         } else {
-            document.getElementsByClassName(`Plus`)[0].style.setProperty(`color`, `#242526`);
-            document.getElementsByClassName(`Minus`)[0].style.setProperty(`color`, `#242526`);
+            document.getElementsByClassName(`Plus`)[0].style.setProperty(`color`, `#00000030`);
+            document.getElementsByClassName(`Minus`)[0].style.setProperty(`color`, `#00000030`);
         }
         let CurrentEloString = `<i>000</i>0`;
         if (CurrentElo >= 1000) {
@@ -170,12 +142,12 @@ async function setPageData() {
         } else {
             CurrentEloString = `<i>000</i>${CurrentElo}`;
         }
-        let NeededEloString = `<i>0</i>100`;
+        let NeededEloString = `100<i>0</i>`;
         if (CurrentTier > 23) {
             if (NeededElo >= 1000) {
                 NeededEloString = `${NeededElo}`;
             } else if (NeededElo >= 100) {
-                NeededEloString = `<i>0</i>${NeededElo}`;
+                NeededEloString = `${NeededElo}<i>0</i>`;
             }
         }
         document.getElementsByClassName(`CurrentEloText`)[0].innerHTML = `${CurrentEloString}/${NeededEloString}`;
@@ -193,6 +165,12 @@ async function updatePageData() {
     getWL();
     setTimeout(() => {setPageData(); console.log(`Page data set`)}, 4500);
 }
+
+const root = document.querySelector(`:root`);
+root.style.setProperty(`--left-color`, left_color);
+root.style.setProperty(`--right-color`, right_color);
+root.style.setProperty(`--text-color`, text_color);
+root.style.setProperty(`--background-color`, background_color);
 
 updatePageData();
 let timerId = setInterval(() => {updatePageData(); console.log(`Page data updated`)}, 60000);

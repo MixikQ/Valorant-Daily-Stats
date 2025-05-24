@@ -6,6 +6,7 @@
     --text-color: #e3e3e3;
     --left-color: #0C3357;
     --right-color: #057BA7;
+    --background-color: #2C2D2E;
 }
 body {
     background-color: #373839;
@@ -15,13 +16,10 @@ body {
 }
 .Background {
     position: absolute;
-    background-color: #2c2d2e;
+    background-color: var(--background-color);
     width: 476px;
     height: 74px;
     border-radius: 6px;
-    border-width: 0px;
-    border-color: #2c2d2e;
-    border-style: solid;
 }
 .ProgressBar {
     position: absolute;
@@ -37,7 +35,7 @@ body {
     width: inherit;
     height: inherit;
     border-radius: inherit;
-    background-color: #2c2d2e;
+    background-color: var(--background-color);
     box-shadow: inset 0px 0px 4px 1px #00000050;
 }
 .ProgressBarProgress {
@@ -55,7 +53,7 @@ body {
     left: 38px;
     width: 150px;
     text-align: start;
-    color: #242526;
+    color: #00000030;
 }
 img {
     position: absolute;
@@ -76,28 +74,31 @@ img {
     border-radius: 2px;
     font-size: 36px;
     text-align: center;
+    overflow:hidden;
 }
 .EloChangesBackground {
     position: absolute;
     width: inherit;
     height: inherit;
     border-radius: inherit;
-    background-color: #2c2d2e;
+    background-color: var(--background-color);
     box-shadow: inset 0px 0px 4px 1px #00000050;
 }
 .Plus {
     position: absolute;
+    width: 22px;
     background-color: #00000000;
     bottom: -3px;
     left: -1px;
-    color: #242526;
+    color: #00000030;
 } 
 .Minus {
     position: absolute;
+    width: 22px;
     background-color: #00000000;
     bottom: -3px;
-    left: 19px;
-    color: #242526;
+    left: 16px;
+    color: #00000030;
 }
 .EloChangesText {
     position: absolute;
@@ -105,7 +106,7 @@ img {
     width: 70px;
     bottom: -3px;
     right: 1px;
-    color: #242526;
+    color: #00000030;
 }
 .CurrentEloText {
     position: absolute;
@@ -114,7 +115,7 @@ img {
     left: 8px;
     bottom: 44px;
     font-size: 24px;
-    color: #242526;
+    color: #00000030;
 }
 .Draws {
     position: absolute;
@@ -124,7 +125,7 @@ img {
     text-align: end;
     bottom: 46.5px;
     right: 123px;
-    color: #242526;
+    color: #00000030;
 }
 .Wins {
     position: absolute;
@@ -133,7 +134,7 @@ img {
     text-align: end;
     right: 123px;
     bottom: 23px;
-    color: #242526;
+    color: #00000030;
 }
 .Losses {
     position: absolute;
@@ -142,9 +143,53 @@ img {
     text-align: end;
     right: 123px;
     bottom: 5px;
-    color: #242526;
+    color: #00000030;
 }
 i {
     font-style: normal;
-    color: #242526;
+    color: #00000030;
+}
+.Spinner {
+    position: absolute;
+    background-color: #00000030;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    bottom: 50px;
+    right: 8px;
+    animation-name: spinner;
+    animation-duration: 64.5s;
+    animation-delay: 4.5s;
+    animation-direction: normal;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+.Element1 {
+    position: absolute;
+    background-color: var(--text-color);
+    width: 2px;
+    height: 6px;
+    left: 50%;
+    top: 2px;
+    transform: translate(-50%, 0);
+    border-radius: 2px;
+}
+.Element2 {
+    position: absolute;
+    background-color: var(--text-color);
+    width: 2px;
+    height: 6px;
+    left: 50%;
+    bottom: 2px;
+    transform: translate(-50%, 0);
+    border-radius: 2px;
+}
+
+@keyframes spinner {
+    0% {
+        rotate: 0deg;
+    }
+    100% {
+        rotate: 3600deg;
+    }
 }
