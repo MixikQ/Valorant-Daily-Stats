@@ -1,5 +1,5 @@
 # Valorant-Daily-Stats
-![Alt Text](https://i.ibb.co/Y4MN4mzN/gif.gif)
+![Alt Text](https://github.com/MixikQ/Valorant-Daily-Stats/blob/main/WidgetGif.gif)
 
 [ENG](#ENG) / [RU](#RU)
 ### ENG
@@ -33,23 +33,16 @@ const platform              = `REPLACE WITH PLATFORM`;                  // Possi
 const api_key               = `REPLACE WITH API KEY`;                   // Gets in HenrikDev discord
 
 // Customization
-const width                 = 1000;                                     // Width in px, only digit (example 1000)
-const show_rank             = `REPLACE WITH TRUE or FALSE`;             // If TRUE shows rank before RR
-const text_color            = `REPLACE WITH COLOR IN HEX`;              // Text color | example #000000ff where's last two characters is opacity
-const enable_bar_gradient   = `REPLACE WITH TRUE or FALSE`;             // If TRUE enables gradient on progress bar
-const color_bar             = `REPLACE WITH COLOR IN HEX`;              // Color of progress bar ignored if enable_bar_gradient is true 
-const first_gradient_color  = `REPLACE WITH COLOR IN HEX`;              // Left color of gradient
-const second_gradient_color = `REPLACE WITH COLOR IN HEX`;              // Right color of gradient
-const border_width          = 3;                                        // Width of border in pixels
-const radius                = 6;                                        // Radius in pixels 
-const color_border          = `REPLACE WITH COLOR IN HEX`;              // Color of border of progress bar
-const color_bg              = `REPLACE WITH COLOR IN HEX`;              // Color of progress bar background
+const background_color      = `REPLACE WITH COLOR IN HEX`;
+const text_color            = `REPLACE WITH COLOR IN HEX`;
+const left_color            = `REPLACE WITH COLOR IN HEX`;
+const right_color           = `REPLACE WITH COLOR IN HEX`;
 ```
-Replace all strings with your data, pay attention that `color_bar` will be ignored, if `enable_bar_gradient` set to *TRUE* and both `first_gradient_color` and `second_gradient_color` will be ignored if *FALSE*
+Replace all strings with your data, to set solid color set the same color in **left_color** and **right_color**
 
-Then open OBS and add **browser source**, click on a checkbox `Local file` and select `main.html` 
+Then open OBS and add **browser source**, click on a checkbox `Local file` and select `daily-stats.html` 
 
-Set width <ins>**the same**</ins> as you set in the `config.js` and height to *70*
+Set width <ins>**447**</ins> and height to <ins>**66**</ins>
 
 **Now widget are ready to use!**
 
@@ -84,22 +77,15 @@ const platform              = `REPLACE WITH PLATFORM`;                  // Possi
 const api_key               = `REPLACE WITH API KEY`;                   // Gets in HenrikDev discord
 
 // Customization
-const width                 = 1000;                                     // Width in px, only digit (example 1000)
-const show_rank             = `REPLACE WITH TRUE or FALSE`;             // If TRUE shows rank before RR
-const text_color            = `REPLACE WITH COLOR IN HEX`;              // Text color | example #000000ff where's last two characters is opacity
-const enable_bar_gradient   = `REPLACE WITH TRUE or FALSE`;             // If TRUE enables gradient on progress bar
-const color_bar             = `REPLACE WITH COLOR IN HEX`;              // Color of progress bar ignored if enable_bar_gradient is true 
-const first_gradient_color  = `REPLACE WITH COLOR IN HEX`;              // Left color of gradient
-const second_gradient_color = `REPLACE WITH COLOR IN HEX`;              // Right color of gradient
-const border_width          = 3;                                        // Width of border in pixels
-const radius                = 6;                                        // Radius in pixels 
-const color_border          = `REPLACE WITH COLOR IN HEX`;              // Color of border of progress bar
-const color_bg              = `REPLACE WITH COLOR IN HEX`;              // Color of progress bar background
+const background_color      = `REPLACE WITH COLOR IN HEX`;
+const text_color            = `REPLACE WITH COLOR IN HEX`;
+const left_color            = `REPLACE WITH COLOR IN HEX`;
+const right_color           = `REPLACE WITH COLOR IN HEX`;
 ```
-Замени все поля соответствующими данными, обрати внимание, что поле `color_bar` будет проигнорировано, если `enable_bar_gradient` установлено *TRUE*, и наоборот, поля `first_gradient_color` и `second_gradient_color` будут проигнорированы, если `enable_bar_gradient` установлено *FALSE*
+Замени все поля соответствующими данными, чтобы установить один цвет нужно вписать один и тот же цвет в поля **left_color** и **right_color**
 
-Затем открой ОБС и добавь источник **браузер**, поставь галочку `Локальный файл` и выбери файл `main.html`
+Затем открой ОБС и добавь источник **браузер**, поставь галочку `Локальный файл` и выбери файл `daily-stats.html`
 
-Установи <ins>**такую же**</ins> ширину, как и в файле `config.js` и высоту *70*
+Установи ширину <ins>**477**</ins> и высоту <ins>**66**</ins>
 
 **Теперь виджет готов к использованию!**
