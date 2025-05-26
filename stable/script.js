@@ -116,8 +116,9 @@ async function setPageData() {
             } else {
                 document.getElementsByClassName(`EloChangesText`)[0].innerHTML = `${EloChanges}<i>00</i>`;
             }
+            document.getElementsByClassName(`EloChangesText`)[0].style.setProperty(`letter-spacing`, `0px`);
             document.getElementsByClassName(`Plus`)[0].style.setProperty(`color`, text_color);
-            document.getElementsByClassName(`Minus`)[0].style.setProperty(`color`, `#00000030`);
+            document.getElementsByClassName(`Minus`)[0].style.setProperty(`background-color`, `#00000000`);
         } else if (EloChanges < 0) {
             if (EloChanges <= -100) {
                 document.getElementsByClassName(`EloChangesText`)[0].innerHTML = `${-EloChanges}`;
@@ -126,11 +127,13 @@ async function setPageData() {
             } else {
                 document.getElementsByClassName(`EloChangesText`)[0].innerHTML = `${-EloChanges}<i>00</i>`;
             }
-            document.getElementsByClassName(`Plus`)[0].style.setProperty(`color`, `#00000030`);
-            document.getElementsByClassName(`Minus`)[0].style.setProperty(`color`, text_color);
+            document.getElementsByClassName(`EloChangesText`)[0].style.setProperty(`letter-spacing`, `0px`);
+            document.getElementsByClassName(`Plus`)[0].style.setProperty(`color`, `#00000020`);
+            document.getElementsByClassName(`Minus`)[0].style.setProperty(`background-color`, text_color);
         } else {
-            document.getElementsByClassName(`Plus`)[0].style.setProperty(`color`, `#00000030`);
-            document.getElementsByClassName(`Minus`)[0].style.setProperty(`color`, `#00000030`);
+            document.getElementsByClassName(`EloChangesText`)[0].style.setProperty(`letter-spacing`, `-2px`);
+            document.getElementsByClassName(`Plus`)[0].style.setProperty(`color`, `#00000020`);
+            document.getElementsByClassName(`Minus`)[0].style.setProperty(`background-color`, `#00000000`);
         }
         let CurrentEloString = `<i>000</i>0`;
         if (CurrentElo >= 1000) {
