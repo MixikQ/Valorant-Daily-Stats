@@ -1,8 +1,20 @@
-# Valorant-Daily-Stats
+# VDS-widget
+## Preview / Предпросмотр
 ![Alt Text](https://github.com/MixikQ/Valorant-Daily-Stats/blob/main/WidgetGif.gif)
 
+## How to support me / Как поддержать меня
+To support me you can tell your viewers about VDS-widget or donate me any amount
+
+Чтобы поддержать проект, ты можешь рассказать своим зрителям о виджете или задонатить любую сумму
+
+[![](https://i.ibb.co/whpG2y97/Donation-Alerts.png)](https://www.donationalerts.com/r/mixq)
+
+- *ERC20 - 0x1D76387Bf21327dBF7670C534Aaf8eA420336365*
+- *BTC - 1AmiZShKuekxU6sEXSCnBVtdDfvZZeLtQR*
+- *SOL - CWb5SGVtZyUL18ybfTZPVdou5kyRnperFrVUFAddwWWS*
+## Language select / Выбор языка
 [ENG](#ENG) / [RU](#RU)
-### ENG
+# ENG
 **This widget works with all ranks**
 
 Feel free to DM me to offer some new features 
