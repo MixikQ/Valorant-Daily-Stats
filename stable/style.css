@@ -97,7 +97,7 @@ body {
     height: 20px;
     left: 141px;
     top:0px;
-    rotate: 21deg;
+    transform: rotate(21deg);
     filter: blur(1px);
 }
 .ProgressBarBackground {
@@ -260,9 +260,9 @@ i {
 
 @keyframes spinner {
     0% {
-        rotate: 0deg;
+        transform: rotate(0deg);
     }
     100% {
-        rotate: 3600deg;
+        transform: rotate(3600deg);
     }
 }
