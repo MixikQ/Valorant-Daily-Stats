@@ -107,6 +107,9 @@ async function setPageData() {
         document.getElementsByClassName(`Losses`)[0].style.setProperty(`color`, text_color);
         if (Wins > 0 || Losses > 0 || Draws > 0) {
             document.getElementsByClassName(`EloChangesText`)[0].style.color = `${text_color}`;
+            if (EloChanges == 0) {
+                document.getElementsByClassName(`EloChangesText`)[0].innerHTML = `${EloChanges}<i>00</i>`;
+            }
         }
         if (EloChanges > 0) {
             if (EloChanges >= 100) {
