@@ -47,6 +47,7 @@ const api_key               = `REPLACE WITH API KEY`;                   // Gets 
 // Customization
 const background_color      = `REPLACE WITH COLOR IN HEX`;
 const text_color            = `REPLACE WITH COLOR IN HEX`;
+// Progress Bar
 const left_color            = `REPLACE WITH COLOR IN HEX`;
 const right_color           = `REPLACE WITH COLOR IN HEX`;
 ```
@@ -91,6 +92,7 @@ const api_key               = `REPLACE WITH API KEY`;                   // Gets 
 // Customization
 const background_color      = `REPLACE WITH COLOR IN HEX`;
 const text_color            = `REPLACE WITH COLOR IN HEX`;
+// Progress Bar
 const left_color            = `REPLACE WITH COLOR IN HEX`;
 const right_color           = `REPLACE WITH COLOR IN HEX`;
 ```
