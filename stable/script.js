@@ -8,10 +8,13 @@ let Losses;
 let Draws;
 let EloChanges;
 
+const URInickname = encodeURIComponent(nickname);
+const URItag = encodeURIComponent(tag);
+
 // Gets current elo on account
 async function getCurrentElo() {
     try {
-        const url = `https://api.henrikdev.xyz/valorant/v3/mmr/${region}/${platform}/${nickname}/${tag}?api_key=${api_key}`;
+        const url = `https://api.henrikdev.xyz/valorant/v3/mmr/${region}/${platform}/${URInickname}/${URItag}?api_key=${api_key}`;
         const response = await fetch(url , { cache: `no-store` });
         if (!response.ok) {
             throw new Error(`Response status: ${response.status}`);
@@ -57,7 +60,7 @@ async function getNeededElo() {
 async function getWL() {
     try {
         let date = new Date().toISOString().slice(0,10);
-        const url = `https://api.henrikdev.xyz/valorant/v2/stored-mmr-history/${region}/${platform}/${nickname}/${tag}?size=50&api_key=${api_key}`;
+        const url = `https://api.henrikdev.xyz/valorant/v2/stored-mmr-history/${region}/${platform}/${URInickname}/${URItag}?size=50&api_key=${api_key}`;
         const response = await fetch(url , { cache: `no-store` });
         if (!response.ok) {
             throw new Error(`Response status: ${response.status}`);
