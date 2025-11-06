@@ -11,6 +11,21 @@ let EloChanges;
 const URInickname = encodeURIComponent(nickname);
 const URItag = encodeURIComponent(tag);
 
+// Due to issues with leaderboard
+if (region == "eu") {
+    NeededElo = 550;
+} else if (region == "na") {
+    NeededElo = 450;
+} else if (region == "latam") {
+    NeededElo = 200;
+} else if (region == "br") {
+    NeededElo = 340;
+} else if (region == "ap") {
+    NeededElo = 400;
+} else if (region == "kr") {
+    NeededElo = 200;
+}
+
 // Gets current elo on account
 async function getCurrentElo() {
     try {
@@ -74,18 +89,56 @@ async function getWL() {
         Wins = 0;
         Losses = 0;
         Draws = 0;
-        for (i = 0; json.data[i].date.toString().includes(date); ++i) {
-            if (json.data[i].last_change < 0) {
-                ++Losses;
-            } else if (json.data[i].last_change > 5) {
-                ++Wins;
+        for (i = 0; i < 50; ++i) {
+            if (json.data[i].date.toString().includes(date)) {
+                checkGame(json.data[i].match_id);
+                if (json.data[i].tier.id != 0) {
+                    ++u;
+                }   
             } else {
-                ++Draws;
+                break;
             }
-            ++u;
         }
+        console.log(u);
         EloFirstGame = json.data[u].elo;
         EloChanges = EloLastGame - EloFirstGame;
+    } catch (error) {
+        console.error(error.message);
+    }
+}
+
+async function checkGame(gameId) {
+    try {
+        const url = `https://api.henrikdev.xyz/valorant/v4/match/${region}/${gameId}?api_key=${api_key}`;
+        const response = await fetch(url , { cache: `no-store` });
+        if (!response.ok) {
+            throw new Error(`Response status: ${response.status}`);
+        }
+        const json = await response.json();
+        console.log(`checkGame():`);
+        console.log(json);
+        let playerTeam;
+        for (i = 0; i < 10; ++i) {
+            if (json.data.players[i].name.toLowerCase() == nickname.toLowerCase() && json.data.players[i].tag.toLowerCase() == tag.toLowerCase()) {
+                playerTeam = json.data.players[i].team_id;
+                break;
+            }
+        }
+        console.log(playerTeam);
+        for (i = 0; i < 2; ++i) {
+            if (json.data.teams[i].team_id == playerTeam) {
+                if (json.data.teams[i].won == true) {
+                    ++Wins;
+                    return;
+                } else if (json.data.teams[i].rounds.won == json.data.teams[i].rounds.lost) {
+                    ++Draws;
+                    return;
+                } else {
+                    ++Losses;
+                    return;
+                }
+            }
+        }
     } catch (error) {
         console.error(error.message);
     }
