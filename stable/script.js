@@ -1,3 +1,20 @@
+const urlParams = new URLSearchParams(window.location.search);
+
+let nickname = (urlParams.has(`nickname`)) ? urlParams.get(`nickname`) : ``;
+let tag = (urlParams.has(`tag`)) ? urlParams.get(`tag`) : ``;
+let region = (urlParams.has(`region`)) ? urlParams.get(`region`) : ``;
+let platform = (urlParams.has(`platform`)) ? urlParams.get(`platform`) : ``;
+let api_key = (urlParams.has(`api_key`)) ? urlParams.get(`api_key`) : ``;
+let bg_color = (urlParams.has(`bg_color`)) ? `#${urlParams.get(`bg_color`)}` : ``;
+let text_color = (urlParams.has(`text_color`)) ? `#${urlParams.get(`text_color`)}` : ``;
+let bar_color_left = (urlParams.has(`bar_color_left`)) ? `#${urlParams.get(`bar_color_left`)}` : ``;
+let bar_color_right = (urlParams.has(`bar_color_right`)) ? `#${urlParams.get(`bar_color_right`)}` : ``;
+
+const URInickname = encodeURIComponent(nickname);
+const URItag = encodeURIComponent(tag);
+
+const PARAM_LIST = [`nickname`, `tag`, `region`, `platform`, `api_key`, `bg_color`, `text_color`, `bar_color_left`, `bar_color_right`];
+
 let CurrentElo;
 let CurrentRank;
 let CurrentTier;
@@ -7,9 +24,6 @@ let Wins;
 let Losses;
 let Draws;
 let EloChanges;
-
-const URInickname = encodeURIComponent(nickname);
-const URItag = encodeURIComponent(tag);
 
 // Due to issues with leaderboard
 if (region == "eu") {
@@ -99,7 +113,6 @@ async function getWL() {
                 break;
             }
         }
-        console.log(u);
         EloFirstGame = json.data[u].elo;
         EloChanges = EloLastGame - EloFirstGame;
     } catch (error) {
@@ -229,10 +242,10 @@ async function updatePageData() {
 }
 
 const root = document.querySelector(`:root`);
-root.style.setProperty(`--left-color`, left_color);
-root.style.setProperty(`--right-color`, right_color);
+root.style.setProperty(`--left-color`, bar_color_left);
+root.style.setProperty(`--right-color`, bar_color_right);
 root.style.setProperty(`--text-color`, text_color);
-root.style.setProperty(`--background-color`, background_color);
+root.style.setProperty(`--background-color`, bg_color);
 
 updatePageData();
 let timerId = setInterval(() => {updatePageData(); console.log(`Page data updated`)}, 60000);
