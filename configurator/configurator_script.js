@@ -40,8 +40,7 @@ const root = document.querySelector(`:root`);
 let platform_input = "pc";
 
 function createLink() {
-    let string = `https://mixikq.github.io/Valorant-Daily-Stats/stable/daily-stats.html?nickname=${encodeURIComponent(nickname_input.value)}&tag=${encodeURIComponent(tag_input.value)}&amp;region=${region_input.value}&platform=${platform_input}&api_key=${api_key_input.value}&bg_color=${tinycolor(bg_hex.value).toHex8()}&text_color=${tinycolor(txt_hex.value).toHex8()}&bar_color_left=${tinycolor(left_hex.value).toHex8()}&bar_color_right=${tinycolor(right_hex.value).toHex8()}`;
-    string = string.replace(" ", "");
+    let string = `https://mixikq.github.io/Valorant-Daily-Stats/stable/daily-stats.html?nickname=${encodeURIComponent(nickname_input.value)}&tag=${encodeURIComponent(tag_input.value)}&amp;region=${region_input.value}&platform=${platform_input}&api_key=<a style="filter: blur(2px);">${api_key_input.value}</a>&bg_color=${tinycolor(bg_hex.value).toHex8()}&text_color=${tinycolor(txt_hex.value).toHex8()}&bar_color_left=${tinycolor(left_hex.value).toHex8()}&bar_color_right=${tinycolor(right_hex.value).toHex8()}`;
     link_box.innerHTML = string;
 }
 

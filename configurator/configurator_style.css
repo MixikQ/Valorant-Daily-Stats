@@ -190,3 +190,6 @@ input[type="range"]::-webkit-slider-thumb:hover {
 .Minus {
     background-color: var(--text-color);
 }
+.blurry {
+    filter: blur(3px);
+}
