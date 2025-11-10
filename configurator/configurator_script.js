@@ -37,8 +37,10 @@ const right = document.getElementById("right");
 
 const root = document.querySelector(`:root`);
 
+let platform_input = "pc";
+
 function createLink() {
-    let string = `https://mixikq.github.io/Valorant-Daily-Stats/stable/daily-stats.html?nickname=${encodeURIComponent(nickname_input.value)}&tag=${encodeURIComponent(tag_input.value)}&amp;region=${region_input.value}&platform=pc&api_key=${api_key_input.value}&bg_color=${tinycolor(bg_hex.value).toHex8String()}&text_color=${tinycolor(txt_hex.value).toHex8String()}&bar_color_left=${tinycolor(left_hex.value).toHex8String()}&bar_color_right=${tinycolor(right_hex.value).toHex8String()}`;
+    let string = `https://mixikq.github.io/Valorant-Daily-Stats/stable/daily-stats.html?nickname=${encodeURIComponent(nickname_input.value)}&tag=${encodeURIComponent(tag_input.value)}&amp;region=${region_input.value}&platform=${platform_input}&api_key=${api_key_input.value}&bg_color=${tinycolor(bg_hex.value).toHex8()}&text_color=${tinycolor(txt_hex.value).toHex8()}&bar_color_left=${tinycolor(left_hex.value).toHex8()}&bar_color_right=${tinycolor(right_hex.value).toHex8()}`;
     string = string.replace(" ", "");
     link_box.innerHTML = string;
 }
@@ -162,7 +164,10 @@ na_button.addEventListener("click", function() { setRegion("na"); });
 checkbox_input.addEventListener("change", function() {
     if (this.checked) {
         document.getElementsByClassName("switch-inner")[0].innerHTML = "Console";
+        platform_input = "console";
     } else {
         document.getElementsByClassName("switch-inner")[0].innerHTML = "PC";
+        platform_input = "pc";
     }
+    createLink();
 });
