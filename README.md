@@ -1,23 +1,26 @@
 # VDS-widget
-## Preview / Предпросмотр
-![Alt Text](https://github.com/MixikQ/Valorant-Daily-Stats/blob/main/WidgetGif.gif)
 
 ## How to support me / Как поддержать меня
+
 To support me you can tell your viewers about VDS-widget or donate me any amount
 
 Чтобы поддержать проект, ты можешь рассказать своим зрителям о виджете или задонатить любую сумму
 
-[![](https://i.ibb.co/whpG2y97/Donation-Alerts.png)](https://www.donationalerts.com/r/mixq)
+[![donate](https://i.ibb.co/whpG2y97/Donation-Alerts.png)](https://www.donationalerts.com/r/mixq)
 
 - *ERC20 - 0x1D76387Bf21327dBF7670C534Aaf8eA420336365*
 - *BTC - 1AmiZShKuekxU6sEXSCnBVtdDfvZZeLtQR*
 - *SOL - CWb5SGVtZyUL18ybfTZPVdou5kyRnperFrVUFAddwWWS*
-## Language select / Выбор языка
-[ENG](#ENG) / [RU](#RU)
-# ENG
-**This widget works with all ranks**
 
-Feel free to DM me to offer some new features 
+## Language select / Выбор языка
+
+[ENG](#eng) / [RU](#ru)
+
+## ENG
+
+This widget works with all ranks
+
+Feel free to DM me to offer some new features
 
 discord: [@mixq](https://discord.com/users/353798731377934337)
 
@@ -33,34 +36,15 @@ To use it you need to get API key in [HenrikDev discord](https://discord.com/inv
   - "Basic" ⇒ 30req/min, granted without approval from HenrikDev side (**recommended**)
   - "Advanced" ⇒ 90req/min, requires HenrikDev approval
 
-After downloading extract all files to any folder and open file `config.js` with notepad
+After getting a key open [my site](https://mixikq.github.io/Valorant-Daily-Stats/) and configure it
 
-You will see there: 
-
-```js
-const nickname              = `REPLACE WITH NICKNAME`;                  // Valorant in-game nickname
-const tag                   = `REPLACE WITH TAG`;                       // Valorant in-game tag
-const region                = `REPLACE WITH REGION`;                    // Possible regions: eu / na / latam / br / ap / kr
-const platform              = `REPLACE WITH PLATFORM`;                  // Possible platforms: pc / console
-const api_key               = `REPLACE WITH API KEY`;                   // Gets in HenrikDev discord
-
-// Customization
-const background_color      = `REPLACE WITH COLOR IN HEX`;
-const text_color            = `REPLACE WITH COLOR IN HEX`;
-// Progress Bar
-const left_color            = `REPLACE WITH COLOR IN HEX`;
-const right_color           = `REPLACE WITH COLOR IN HEX`;
-```
-Replace all strings with your data, to set solid color set the same color in **left_color** and **right_color**
-
-Then open OBS and add **browser source**, click on a checkbox `Local file` and select `daily-stats.html` 
-
-Set width <ins>**447**</ins> and height to <ins>**66**</ins>
+Copy link at the bottom, create **browser source** in OBS, paste link to *URL* field, set width to **447px** and height to **66px**
 
 **Now widget are ready to use!**
 
 ### RU
-**Виджет работает правильно для всех рангов**
+
+Виджет работает правильно для всех рангов
 
 Не стесняйтесь писать мне в ЛС, чтобы предлагать новые функции
 
@@ -78,28 +62,8 @@ discord: [@mixq](https://discord.com/users/353798731377934337)
   - "Basic" ⇒ 30 запросов/минута, гарантируется без разрешения со стороны разработчиков (рекомендую этот тип)
   - "Advanced" ⇒ 90 запросов/минута, нужно чтобы подтвердили разработчики
 
-После скачивания, нужно извлечь все файлы из архива в любую удобную папку и открыть файл `config.js`
+После получения ключа, открой [мой сайт конфигуратор](https://mixikq.github.io/Valorant-Daily-Stats/) и настрой виджет
 
-В нем будет: 
-
-```js
-const nickname              = `REPLACE WITH NICKNAME`;                  // Valorant in-game nickname
-const tag                   = `REPLACE WITH TAG`;                       // Valorant in-game tag
-const region                = `REPLACE WITH REGION`;                    // Possible regions: eu / na / latam / br / ap / kr
-const platform              = `REPLACE WITH PLATFORM`;                  // Possible platforms: pc / console
-const api_key               = `REPLACE WITH API KEY`;                   // Gets in HenrikDev discord
-
-// Customization
-const background_color      = `REPLACE WITH COLOR IN HEX`;
-const text_color            = `REPLACE WITH COLOR IN HEX`;
-// Progress Bar
-const left_color            = `REPLACE WITH COLOR IN HEX`;
-const right_color           = `REPLACE WITH COLOR IN HEX`;
-```
-Замени все поля соответствующими данными, чтобы установить один цвет нужно вписать один и тот же цвет в поля **left_color** и **right_color**
-
-Затем открой ОБС и добавь источник **браузер**, поставь галочку `Локальный файл` и выбери файл `daily-stats.html`
-
-Установи ширину <ins>**477**</ins> и высоту <ins>**66**</ins>
+Скопируй ссылку внизу сайта, создай новый источник браузер в ОБСЕ, вставь ссылку в поле **ссылка**, установи ширину **447 пикселей** и высоты **66 пикселей**
 
 **Теперь виджет готов к использованию!**
