@@ -1,4 +1,4 @@
-# VDS-widget
+# [VDS-widget](https://mixikq.github.io/Valorant-Daily-Stats/)
 
 ## How to support me / Как поддержать меня
 
