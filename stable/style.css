@@ -121,7 +121,8 @@ body {
     position: absolute;
     bottom: 1px;
     left: 38px;
-    width: 150px;
+    width: 180px;
+    font-size: 20px;
     text-align: start;
     color: #00000030;
 }
