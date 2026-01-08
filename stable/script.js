@@ -22,6 +22,7 @@ let Wins;
 let Losses;
 let Draws;
 let EloChanges;
+let GamesForRating;
 
 // Due to issues with leaderboard
 if (region == "eu") {
@@ -49,10 +50,13 @@ async function getCurrentElo() {
         const json = await response.json();
         console.log(`getCurrentElo():`);
         console.log(json);
-        if (json.data.current.tier.id) {
+        if (json.data.current.tier.id >= 0) {
             CurrentElo = json.data.current.rr;
             CurrentTier = json.data.current.tier.id;
             CurrentRank = json.data.current.tier.name;
+            if (CurrentTier == 0) {
+                GamesForRating = json.data.current.games_needed_for_rating;
+            }
         }
         if (json.data.current.leaderboard_placement) {
             CurrentPlace = json.data.current.leaderboard_placement.rank;
@@ -158,10 +162,18 @@ async function checkGame(gameId) {
 async function setPageData() {
     try {
         document.getElementsByClassName(`RankPicture`)[0].src = `https://media.valorant-api.com/competitivetiers/03621f52-342b-cf4e-4f86-9350a49c6d04/${CurrentTier}/largeicon.png`;
-        if (CurrentPlace) {
-            document.getElementsByClassName(`CurrentRank`)[0].innerHTML = `${CurrentRank} #${CurrentPlace}`;
-        } else { 
-            document.getElementsByClassName(`CurrentRank`)[0].innerHTML = `${CurrentRank}`
+        if (CurrentTier != 0) {
+            if (CurrentPlace) {
+                document.getElementsByClassName(`CurrentRank`)[0].innerHTML = `${CurrentRank} #${CurrentPlace}`;
+            } else { 
+                document.getElementsByClassName(`CurrentRank`)[0].innerHTML = `${CurrentRank}`;
+            }
+        } else {
+            if (GamesForRating == 1) {
+                document.getElementsByClassName(`CurrentRank`)[0].innerHTML = `${GamesForRating} game to rank`;
+            } else {
+                document.getElementsByClassName(`CurrentRank`)[0].innerHTML = `${GamesForRating} games to rank`;
+            }
         }
         document.getElementsByClassName(`CurrentRank`)[0].style.setProperty(`color`, text_color);
         document.getElementsByClassName(`Draws`)[0].innerHTML = (Draws >= 10) ? `Draws: ${Draws}` : `Draws: <i>0</i>${Draws}`;
@@ -205,25 +217,29 @@ async function setPageData() {
             document.getElementsByClassName(`Plus`)[0].style.setProperty(`color`, `#00000020`);
             document.getElementsByClassName(`Minus`)[0].style.setProperty(`background-color`, `#00000000`);
         }
-        let CurrentEloString = `<i>000</i>0`;
-        if (CurrentElo >= 1000) {
-            CurrentEloString = `${CurrentElo}`;
-        } else if (CurrentElo >= 100) {
-            CurrentEloString = `<i>0</i>${CurrentElo}`;
-        } else if (CurrentElo >= 10) {
-            CurrentEloString = `<i>00</i>${CurrentElo}`;
-        } else {
-            CurrentEloString = `<i>000</i>${CurrentElo}`;
-        }
-        let NeededEloString = `100<i>0</i>`;
-        if (CurrentTier > 23) {
-            if (NeededElo >= 1000) {
-                NeededEloString = `${NeededElo}`;
-            } else if (NeededElo >= 100) {
-                NeededEloString = `${NeededElo}<i>0</i>`;
+        if (CurrentTier != 0) {
+            let CurrentEloString = `<i>000</i>0`;
+            if (CurrentElo >= 1000) {
+                CurrentEloString = `${CurrentElo}`;
+            } else if (CurrentElo >= 100) {
+                CurrentEloString = `<i>0</i>${CurrentElo}`;
+            } else if (CurrentElo >= 10) {
+                CurrentEloString = `<i>00</i>${CurrentElo}`;
+            } else {
+                CurrentEloString = `<i>000</i>${CurrentElo}`;
             }
+            let NeededEloString = `100<i>0</i>`;
+            if (CurrentTier > 23) {
+                if (NeededElo >= 1000) {
+                    NeededEloString = `${NeededElo}`;
+                } else if (NeededElo >= 100) {
+                    NeededEloString = `${NeededElo}<i>0</i>`;
+                }
+            }
+            document.getElementsByClassName(`CurrentEloText`)[0].innerHTML = `${CurrentEloString}/${NeededEloString}`;
+        } else {
+            document.getElementsByClassName(`CurrentEloText`)[0].innerHTML = `Calibration`;
         }
-        document.getElementsByClassName(`CurrentEloText`)[0].innerHTML = `${CurrentEloString}/${NeededEloString}`;
         document.getElementsByClassName(`CurrentEloText`)[0].style.setProperty(`color`, text_color);
         document.getElementsByClassName(`ProgressBarProgress`)[0].style.transform = (CurrentTier >= 24) ? `translateX(${Math.min(-50+(CurrentElo/NeededElo*50), 0)}%)` : `translateX(${Math.min(-50+(CurrentElo/2), 0)}%)`;
     } catch (error) {
