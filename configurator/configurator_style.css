@@ -3,16 +3,32 @@
     --left-color: #0C3357;
     --right-color: #057BA7;
     --background-color: #2C2D2E;
+
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
+    min-width: 100vw;
+    height: 100%;
+    width: 100%;
+    flex-grow: 1;
 }
 body {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-content: center;
     background-color: #2c2d2e;
     overflow: hidden;
+    flex-wrap: wrap;
 
     --background_color: #2c2d2eff;
 }
 .main-bg {
+    scale: 175%;
+    margin: 0 auto;
     display: grid;
     justify-self: center;
     align-self: center;
@@ -21,7 +37,7 @@ body {
     background-repeat: no-repeat;
     background-color: #2c2d2ecc;
     background-blend-mode: multiply;
-    width: auto;
+    width: max-content;
     grid-auto-rows: 45px;
     grid-auto-columns: 120px;
     grid-template-areas: 
@@ -32,8 +48,58 @@ body {
     "link_box link_box link_box link_box link_box link_box";
     gap: 10px;
     border-radius: 3px;
-    padding: 10px;
+    padding: 10px; 
 }
+
+@media (min-width: 1250px) and (max-width: 1500px) {
+        .main-bg {
+            scale: 150%;
+        }
+    }
+
+@media (min-width: 1100px) and (max-width: 1249px) {
+        .main-bg {
+            scale: 130%;
+        }
+    }
+
+@media (min-width: 1000px) and (max-width: 1099px) {
+        .main-bg {
+            scale: 120%;
+        }
+    }
+
+@media (min-width: 930px) and (max-width: 999px) {
+        .main-bg {
+            scale: 110%;
+        }
+    }
+
+@media (min-width: 840px) and (max-width: 929px) {
+        .main-bg {
+            scale: 100%;
+        }
+    }
+
+    /*смещение с этого момента влево*/
+@media (min-width: 800px) and (max-width: 839px) { 
+        .main-bg {
+            scale: 100%;
+        }
+    }
+
+    /*сильное смещение влево*/
+@media (min-width: 630px) and (max-width: 799px) {
+        .main-bg {
+            scale: 80%;
+        }
+    }
+
+@media (min-width: 375px) and (max-width: 629px) {
+        .main-bg {
+            scale: 60%;
+        }
+    }
 .box {
     background-color: rgba(255, 255, 255, 0.05);
     font-size: 12px;
