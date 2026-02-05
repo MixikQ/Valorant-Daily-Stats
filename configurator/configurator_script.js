@@ -40,24 +40,29 @@ const root = document.querySelector(`:root`);
 let platform_input = "pc";
 
 function createLink() {
-    let string = `https://mixikq.github.io/Valorant-Daily-Stats/stable/daily-stats.html?nickname=${encodeURIComponent(nickname_input.value)}&tag=${encodeURIComponent(tag_input.value)}&amp;region=${region_input.value}&platform=${platform_input}&api_key=<a style="filter: blur(2px);">${api_key_input.value}</a>&bg_color=${tinycolor(bg_hex.value).toHex8()}&text_color=${tinycolor(txt_hex.value).toHex8()}&bar_color_left=${tinycolor(left_hex.value).toHex8()}&bar_color_right=${tinycolor(right_hex.value).toHex8()}`;
-    link_box.innerHTML = string;
+  let string = `https://mixikq.github.io/Valorant-Daily-Stats/stable/daily-stats.html?nickname=${encodeURIComponent(nickname_input.value)}&tag=${encodeURIComponent(tag_input.value)}&amp;region=${region_input.value}&platform=${platform_input}&api_key=<a style="filter: blur(2px);">${api_key_input.value}</a>&bg_color=${tinycolor(bg_hex.value).toHex8()}&text_color=${tinycolor(txt_hex.value).toHex8()}&bar_color_left=${tinycolor(left_hex.value).toHex8()}&bar_color_right=${tinycolor(right_hex.value).toHex8()}`;
+  link_box.innerHTML = string;
 }
 
 function setBackgroundColor() {
-    let color = tinycolor({r: bg_red.value, g: bg_green.value, b: bg_blue.value, a: bg_alpha.value / 255}).toHex8String();
-    root.style.setProperty("--background-color", color);
-    bg_hex.value = color;
-    createLink();
+  let color = tinycolor({
+    r: bg_red.value,
+    g: bg_green.value,
+    b: bg_blue.value,
+    a: bg_alpha.value / 255,
+  }).toHex8String();
+  root.style.setProperty("--background-color", color);
+  bg_hex.value = color;
+  createLink();
 }
 function setBackgroundColorFromHex() {
-    let color = tinycolor(bg_hex.value).toRgb();
-    bg_red.value = color.r;
-    bg_green.value = color.g;
-    bg_blue.value = color.b;
-    bg_alpha.value = color.a * 255;
-    root.style.setProperty("--background-color", bg_hex.value);
-    createLink();
+  let color = tinycolor(bg_hex.value).toRgb();
+  bg_red.value = color.r;
+  bg_green.value = color.g;
+  bg_blue.value = color.b;
+  bg_alpha.value = color.a * 255;
+  root.style.setProperty("--background-color", bg_hex.value);
+  createLink();
 }
 
 bg_hex.addEventListener("input", setBackgroundColorFromHex);
@@ -66,21 +71,25 @@ bg_green.addEventListener("input", setBackgroundColor);
 bg_blue.addEventListener("input", setBackgroundColor);
 bg_alpha.addEventListener("input", setBackgroundColor);
 
-
 function setTextColor() {
-    let color = tinycolor({r: txt_red.value, g: txt_green.value, b: txt_blue.value, a: txt_alpha.value / 255}).toHex8String();
-    root.style.setProperty("--text-color", color);
-    txt_hex.value = color;
-    createLink();
+  let color = tinycolor({
+    r: txt_red.value,
+    g: txt_green.value,
+    b: txt_blue.value,
+    a: txt_alpha.value / 255,
+  }).toHex8String();
+  root.style.setProperty("--text-color", color);
+  txt_hex.value = color;
+  createLink();
 }
 function setTextColorFromHex() {
-    let color = tinycolor(txt_hex.value).toRgb();
-    txt_red.value = color.r;
-    txt_green.value = color.g;
-    txt_blue.value = color.b;
-    txt_alpha.value = color.a * 255;
-    root.style.setProperty("--text-color", txt_hex.value);
-    createLink();
+  let color = tinycolor(txt_hex.value).toRgb();
+  txt_red.value = color.r;
+  txt_green.value = color.g;
+  txt_blue.value = color.b;
+  txt_alpha.value = color.a * 255;
+  root.style.setProperty("--text-color", txt_hex.value);
+  createLink();
 }
 
 txt_hex.addEventListener("input", setTextColorFromHex);
@@ -89,21 +98,25 @@ txt_green.addEventListener("input", setTextColor);
 txt_blue.addEventListener("input", setTextColor);
 txt_alpha.addEventListener("input", setTextColor);
 
-
 function setLeftColor() {
-    let color = tinycolor({r: left_red.value, g: left_green.value, b: left_blue.value, a: left_alpha.value / 255}).toHex8String();
-    root.style.setProperty("--left-color", color);
-    left_hex.value = color;
-    createLink();
+  let color = tinycolor({
+    r: left_red.value,
+    g: left_green.value,
+    b: left_blue.value,
+    a: left_alpha.value / 255,
+  }).toHex8String();
+  root.style.setProperty("--left-color", color);
+  left_hex.value = color;
+  createLink();
 }
 function setLeftColorFromHex() {
-    let color = tinycolor(left_hex.value).toRgb();
-    left_red.value = color.r;
-    left_green.value = color.g;
-    left_blue.value = color.b;
-    left_alpha.value = color.a * 255;
-    root.style.setProperty("--left-color", left_hex.value);
-    createLink();
+  let color = tinycolor(left_hex.value).toRgb();
+  left_red.value = color.r;
+  left_green.value = color.g;
+  left_blue.value = color.b;
+  left_alpha.value = color.a * 255;
+  root.style.setProperty("--left-color", left_hex.value);
+  createLink();
 }
 
 left_hex.addEventListener("input", setLeftColorFromHex);
@@ -112,21 +125,25 @@ left_green.addEventListener("input", setLeftColor);
 left_blue.addEventListener("input", setLeftColor);
 left_alpha.addEventListener("input", setLeftColor);
 
-
 function setRightColor() {
-    let color = tinycolor({r: right_red.value, g: right_green.value, b: right_blue.value, a: right_alpha.value / 255}).toHex8String();
-    root.style.setProperty("--right-color", color);
-    right_hex.value = color;
-    createLink();
+  let color = tinycolor({
+    r: right_red.value,
+    g: right_green.value,
+    b: right_blue.value,
+    a: right_alpha.value / 255,
+  }).toHex8String();
+  root.style.setProperty("--right-color", color);
+  right_hex.value = color;
+  createLink();
 }
 function setRightColorFromHex() {
-    let color = tinycolor(right_hex.value).toRgb();
-    right_red.value = color.r;
-    right_green.value = color.g;
-    right_blue.value = color.b;
-    right_alpha.value = color.a * 255;
-    root.style.setProperty("--right-color", right_hex.value);
-    createLink();
+  let color = tinycolor(right_hex.value).toRgb();
+  right_red.value = color.r;
+  right_green.value = color.g;
+  right_blue.value = color.b;
+  right_alpha.value = color.a * 255;
+  root.style.setProperty("--right-color", right_hex.value);
+  createLink();
 }
 
 right_hex.addEventListener("input", setRightColorFromHex);
@@ -149,24 +166,36 @@ const na_button = document.getElementById("na");
 const dropdown = document.querySelector(".dropdown-content");
 
 function setRegion(reg) {
-    region_input.value = reg;
-    createLink();
+  region_input.value = reg;
+  createLink();
 }
 
-ap_button.addEventListener("click", function() { setRegion("ap"); });
-br_button.addEventListener("click", function() { setRegion("br"); });
-eu_button.addEventListener("click", function() { setRegion("eu"); });
-kr_button.addEventListener("click", function() { setRegion("kr"); });
-latam_button.addEventListener("click", function() { setRegion("latam"); });
-na_button.addEventListener("click", function() { setRegion("na"); });
+ap_button.addEventListener("click", function () {
+  setRegion("ap");
+});
+br_button.addEventListener("click", function () {
+  setRegion("br");
+});
+eu_button.addEventListener("click", function () {
+  setRegion("eu");
+});
+kr_button.addEventListener("click", function () {
+  setRegion("kr");
+});
+latam_button.addEventListener("click", function () {
+  setRegion("latam");
+});
+na_button.addEventListener("click", function () {
+  setRegion("na");
+});
 
-checkbox_input.addEventListener("change", function() {
-    if (this.checked) {
-        document.getElementsByClassName("switch-inner")[0].innerHTML = "Console";
-        platform_input = "console";
-    } else {
-        document.getElementsByClassName("switch-inner")[0].innerHTML = "PC";
-        platform_input = "pc";
-    }
-    createLink();
+checkbox_input.addEventListener("change", function () {
+  if (this.checked) {
+    document.getElementsByClassName("switch-inner")[0].innerHTML = "Console";
+    platform_input = "console";
+  } else {
+    document.getElementsByClassName("switch-inner")[0].innerHTML = "PC";
+    platform_input = "pc";
+  }
+  createLink();
 });
