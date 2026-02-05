@@ -1,269 +1,276 @@
 @font-face {
-    font-family: "Unageo";
-    src: url(Unageo-Bold.ttf);
+  font-family: "Unageo";
+  src: url(Unageo-Bold.ttf);
 }
 :root {
-    --text-color: #e3e3e3;
-    --left-color: #0C3357;
-    --right-color: #057BA7;
-    --background-color: #2C2D2E;
+  --text-color: #e3e3e3;
+  --left-color: #0c3357;
+  --right-color: #057ba7;
+  --background-color: #2c2d2e;
 }
 body {
-    background-color: #373839;
-    color: #e3e3e3;
-    font-family: "Unageo";
-    font-weight: 500;
+  background-color: #373839;
+  color: #e3e3e3;
+  font-family: "Unageo";
+  font-weight: 500;
 }
 .Background {
-    position: absolute;
-    background-color: var(--background-color);
-    width: 447px;
-    height: 66px;
-    border-radius: 4px;
+  position: absolute;
+  background-color: var(--background-color);
+  width: 447px;
+  height: 66px;
+  border-radius: 4px;
 }
 .by {
-    position: absolute;
-    font-size: 12px;
-    top: 6px;
-    right: 45px;
-    width: 48px;
-    color: #0000004d;
+  position: absolute;
+  font-size: 12px;
+  top: 6px;
+  right: 45px;
+  width: 48px;
+  color: #0000004d;
 }
 .mixq {
-    position: absolute;
-    width: 17px;
-    right: 27px;
-    top: 3px;
-    opacity: 0.3;
+  position: absolute;
+  width: 17px;
+  right: 27px;
+  top: 3px;
+  opacity: 0.3;
 }
 .ProgressBar {
-    position: absolute;
-    width: 77.85%;
-    height: 90.9%;
-    bottom: 3px;
-    left: 3px;
-    overflow: hidden;
-    clip-path: path("M0.763818 22C0.763818 20.8954 1.65925 20 2.76382 20H137.382C138.219 20 138.968 19.4787 139.258 18.6935L145.686 1.30651C145.976 0.52133 146.724 -1.1609e-05 147.562 -1.1609e-05H345.764C346.868 -1.1609e-05 347.764 0.895419 347.764 1.99999V58C347.764 59.1046 346.868 60 345.764 60H2.76383C1.65926 60 0.763818 59.1046 0.763818 58V22Z");
+  position: absolute;
+  width: 77.85%;
+  height: 90.9%;
+  bottom: 3px;
+  left: 3px;
+  overflow: hidden;
+  clip-path: path(
+    "M0.763818 22C0.763818 20.8954 1.65925 20 2.76382 20H137.382C138.219 20 138.968 19.4787 139.258 18.6935L145.686 1.30651C145.976 0.52133 146.724 -1.1609e-05 147.562 -1.1609e-05H345.764C346.868 -1.1609e-05 347.764 0.895419 347.764 1.99999V58C347.764 59.1046 346.868 60 345.764 60H2.76383C1.65926 60 0.763818 59.1046 0.763818 58V22Z"
+  );
 }
 .BottomShadow {
-    position: absolute;
-    background-color: #00000050;
-    width: 100%;
-    height: 2px;
-    bottom: -1px;
-    left: 0px;
-    filter: blur(1px);
+  position: absolute;
+  background-color: #00000050;
+  width: 100%;
+  height: 2px;
+  bottom: -1px;
+  left: 0px;
+  filter: blur(1px);
 }
 .RightShadow {
-    position: absolute;
-    background-color: #00000050;
-    width: 2px;
-    height: 100%;
-    right: -1px;
-    top: 0px;
-    filter: blur(1px);
+  position: absolute;
+  background-color: #00000050;
+  width: 2px;
+  height: 100%;
+  right: -1px;
+  top: 0px;
+  filter: blur(1px);
 }
 .TopShadow {
-    position: absolute;
-    background-color: #00000050;
-    width: 100%;
-    height: 2px;
-    top: -1px;
-    right: 0px;
-    filter: blur(1px);
+  position: absolute;
+  background-color: #00000050;
+  width: 100%;
+  height: 2px;
+  top: -1px;
+  right: 0px;
+  filter: blur(1px);
 }
 .LeftShadow {
-    position: absolute;
-    background-color: #00000050;
-    width: 2px;
-    height: 100%;
-    bottom: 0px;
-    left: -1px;
-    filter: blur(1px);
+  position: absolute;
+  background-color: #00000050;
+  width: 2px;
+  height: 100%;
+  bottom: 0px;
+  left: -1px;
+  filter: blur(1px);
 }
 .CornerShadowTop {
-    position: absolute;
-    background-color: #00000050;
-    width: 40%; 
-    height: 2px;
-    bottom: 65%;
-    left: 0px;
-    filter: blur(1px);
+  position: absolute;
+  background-color: #00000050;
+  width: 40%;
+  height: 2px;
+  bottom: 65%;
+  left: 0px;
+  filter: blur(1px);
 }
 .CornerShadowLeft {
-    position: absolute;
-    background-color: #00000050;
-    width: 2px;
-    height: 33.3%;
-    left: 40.51%;
-    top:0px;
-    transform: rotate(21deg);
-    filter: blur(1px);
+  position: absolute;
+  background-color: #00000050;
+  width: 2px;
+  height: 33.3%;
+  left: 40.51%;
+  top: 0px;
+  transform: rotate(21deg);
+  filter: blur(1px);
 }
 .ProgressBarBackground {
-    position: inherit;
-    width: 100%;
-    height: 100%;
-    border-radius: inherit;
-    background-color: var(--background-color);
-    clip-path: inherit;
+  position: inherit;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background-color: var(--background-color);
+  clip-path: inherit;
 }
 .ProgressBarProgress {
-    position: absolute;
-    background-color: #000000;
-    transform: translateX(-50%);
-    background: linear-gradient(105deg, var(--left-color) 15%, var(--right-color) 50.7%, #00000000 50.8%);
-    width: 200%;
-    height: 100%;
-    transition: transform 2s;
+  position: absolute;
+  background-color: #000000;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    105deg,
+    var(--left-color) 15%,
+    var(--right-color) 50.7%,
+    #00000000 50.8%
+  );
+  width: 200%;
+  height: 100%;
+  transition: transform 2s;
 }
 .CurrentRank {
-    position: absolute;
-    bottom: 1px;
-    left: 38px;
-    width: 180px;
-    font-size: 20px;
-    text-align: start;
-    color: #00000030;
+  position: absolute;
+  bottom: 1px;
+  left: 38px;
+  width: 180px;
+  font-size: 20px;
+  text-align: start;
+  color: #00000030;
 }
 .RankPicture {
-    position: absolute;
-    background-color: #00000000;
-    border-radius: 2px;
-    bottom: 3px;
-    left: 2px;
-    width: 34px;
-    height: 34px;
-    filter: drop-shadow(0.5px 0px 1px #00000090)
+  position: absolute;
+  background-color: #00000000;
+  border-radius: 2px;
+  bottom: 3px;
+  left: 2px;
+  width: 34px;
+  height: 34px;
+  filter: drop-shadow(0.5px 0px 1px #00000090);
 }
 .EloChanges {
-    position: absolute;
-    width: 20.13%;
-    height: 60.6%;
-    bottom: 3px;
-    right: 3px;
-    border-radius: 2px;
-    font-size: 36px;
-    text-align: center;
-    overflow:hidden;
+  position: absolute;
+  width: 20.13%;
+  height: 60.6%;
+  bottom: 3px;
+  right: 3px;
+  border-radius: 2px;
+  font-size: 36px;
+  text-align: center;
+  overflow: hidden;
 }
 .EloChangesBackground {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: inherit;
-    background-color: var(--background-color);
-    box-shadow: inset 0px 0px 4px 1px #00000050;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background-color: var(--background-color);
+  box-shadow: inset 0px 0px 4px 1px #00000050;
 }
 .Plus {
-    position: absolute;
-    width: 22px;
-    background-color: #00000000;
-    bottom: -3px;
-    left: 1px;
-    color: #00000030;
-} 
+  position: absolute;
+  width: 22px;
+  background-color: #00000000;
+  bottom: -3px;
+  left: 1px;
+  color: #00000030;
+}
 .Minus {
-    position: absolute;
-    height: 4.8px;
-    width: 16.38px;
-    vertical-align: middle;
-    background-color: #00000000;
-    bottom: 40%;
-    left: 4.7%;
+  position: absolute;
+  height: 4.8px;
+  width: 16.38px;
+  vertical-align: middle;
+  background-color: #00000000;
+  bottom: 40%;
+  left: 4.7%;
 }
 .EloChangesText {
-    position: absolute;
-    background-color: #00000000;
-    width: 70px;
-    bottom: -3px;
-    right: 1px;
-    color: #00000030;
-    text-align: center;
-    letter-spacing: -2px;
+  position: absolute;
+  background-color: #00000000;
+  width: 70px;
+  bottom: -3px;
+  right: 1px;
+  color: #00000030;
+  text-align: center;
+  letter-spacing: -2px;
 }
 .CurrentEloText {
-    position: absolute;
-    width: 140px;
-    background-color: #00000000;
-    left: 4px;
-    bottom: 39px;
-    font-size: 24px;
-    color: #00000030;
-    text-align: center;
+  position: absolute;
+  width: 140px;
+  background-color: #00000000;
+  left: 4px;
+  bottom: 39px;
+  font-size: 24px;
+  color: #00000030;
+  text-align: center;
 }
 .Draws {
-    position: absolute;
-    background-color: #00000000;
-    font-size: 14px;
-    text-align: end;
-    bottom: 42px;
-    right: 100px;
-    color: #00000030;
+  position: absolute;
+  background-color: #00000000;
+  font-size: 14px;
+  text-align: end;
+  bottom: 42px;
+  right: 100px;
+  color: #00000030;
 }
 .Wins {
-    position: absolute;
-    background-color: #00000000;
-    font-size: 20px;
-    text-align: end;
-    right: 100px;
-    bottom: 20px;
-    color: #00000030;
+  position: absolute;
+  background-color: #00000000;
+  font-size: 20px;
+  text-align: end;
+  right: 100px;
+  bottom: 20px;
+  color: #00000030;
 }
 .Losses {
-    position: absolute;
-    background-color: #00000000;
-    font-size: 20px;
-    text-align: end;
-    right: 100px;
-    bottom: 1px;
-    color: #00000030;
+  position: absolute;
+  background-color: #00000000;
+  font-size: 20px;
+  text-align: end;
+  right: 100px;
+  bottom: 1px;
+  color: #00000030;
 }
 i {
-    font-style: normal;
-    color: #00000030;
+  font-style: normal;
+  color: #00000030;
 }
 .Spinner {
-    position: absolute;
-    background-color: #00000030;
-    width: 17px;
-    height: 17px;
-    border-radius: 100%;
-    top: 3px;
-    right: 3px;
-    animation-name: spinner;
-    animation-duration: 64.5s;
-    animation-delay: 4.5s;
-    animation-direction: normal;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
+  position: absolute;
+  background-color: #00000030;
+  width: 17px;
+  height: 17px;
+  border-radius: 100%;
+  top: 3px;
+  right: 3px;
+  animation-name: spinner;
+  animation-duration: 64.5s;
+  animation-delay: 4.5s;
+  animation-direction: normal;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
 }
 .Element1 {
-    position: absolute;
-    background-color: var(--text-color);
-    width: 2px;
-    height: 6px;
-    left: 50%;
-    top: 1px;
-    transform: translate(-50%, 0);
-    border-radius: 2px;
+  position: absolute;
+  background-color: var(--text-color);
+  width: 2px;
+  height: 6px;
+  left: 50%;
+  top: 1px;
+  transform: translate(-50%, 0);
+  border-radius: 2px;
 }
 .Element2 {
-    position: absolute;
-    background-color: var(--text-color);
-    width: 2px;
-    height: 6px;
-    left: 50%;
-    bottom: 1px;
-    transform: translate(-50%, 0);
-    border-radius: 2px;
+  position: absolute;
+  background-color: var(--text-color);
+  width: 2px;
+  height: 6px;
+  left: 50%;
+  bottom: 1px;
+  transform: translate(-50%, 0);
+  border-radius: 2px;
 }
 
 @keyframes spinner {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(3600deg);
-    }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(3600deg);
+  }
 }
