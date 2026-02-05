@@ -34,6 +34,7 @@ body {
   --background_color: #2c2d2eff;
 }
 .main-bg {
+  scale: calc(var(--w) * 0.115%);
   margin: 0 auto;
   display: grid;
   justify-self: center;
@@ -61,13 +62,7 @@ body {
     background-size 0ms;
 }
 
-@media (min-width: 800px) {
-  .main-bg {
-    scale: calc(var(--w) * 0.115%);
-  }
-}
-
-@media (max-width: 799px) {
+@media (max-aspect-ratio: 1/1) {
   .main-bg {
     scale: calc(var(--w) * 0.175%);
     grid-template-areas:
