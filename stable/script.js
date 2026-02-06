@@ -129,7 +129,12 @@ async function getWL() {
         break;
       }
     }
-    EloFirstGame = json.data[u].elo;
+    for (let i = 0; i < 5; ++i) {
+      if (json.data[u - i].tier.id != 0) {
+        EloFirstGame = json.data[u - i].elo;
+        break;
+      }
+    }
     EloChanges = EloLastGame - EloFirstGame;
   } catch (error) {
     console.error(error.message);
